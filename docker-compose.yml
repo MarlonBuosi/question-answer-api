@@ -1,0 +1,13 @@
+services:
+  postgres:
+    container_name: question-answer-pg
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USER=${POSTGRES_USER}
+      - POSTGRESQL_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRESQL_DB=${POSTGRESQL_DB}
+      - PGDATA=/data/postgres
+    volumes:
+      - ./data/pg:/data/postgres
